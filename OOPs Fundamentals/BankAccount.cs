@@ -7,18 +7,30 @@ namespace OOPs_Fundamentals
 {
     public class BankAccount
     {
-        string AccountNumber;
-        string AccountHolderName;
+        string accountNumber;
+        string accountHolderName;
         decimal balance;
 
-        public void Deposit(decimal Amount)
+        public decimal Balance
         {
-            balance += Amount;
+            get;
+            private set;
         }
 
-        public void Withdraw(decimal Amount)
+        public string Deposit(decimal amount)
         {
-            balance -= Amount;
+            if (amount < 0) return "Reject";
+
+            balance += amount;
+            return "Success";
+        }
+
+        public string Withdraw(decimal amount)
+        {
+            if ((balance <= 0 && amount > 0) || (amount < 0)) return "reject";
+
+            balance -= amount;
+            return "Success";
         }
 
         public decimal GetBalance()
@@ -26,11 +38,11 @@ namespace OOPs_Fundamentals
             return balance; 
         }
 
-        public BankAccount(string accountNumber, string accountHolderName, decimal balance)
+        public BankAccount(string accountNum, string accountName, decimal bal)
         {
-            AccountNumber = accountNumber;
-            AccountHolderName = accountHolderName;
-            this.balance = balance;
+            this.accountNumber = accountNum;
+            this.accountHolderName = accountName;
+            this.balance = bal;
         }
 
     }
