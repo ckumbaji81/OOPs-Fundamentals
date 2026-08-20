@@ -11,12 +11,6 @@ namespace OOPs_Fundamentals
         string accountHolderName;
         decimal balance;
 
-        public decimal Balance
-        {
-            get;
-            private set;
-        }
-
         public string Deposit(decimal amount)
         {
             if (amount < 0) return "Reject";
