@@ -9,34 +9,33 @@ namespace OOPs_Fundamentals
     {
         string accountNumber;
         string accountHolderName;
-        decimal balance;
+        public decimal Balance
+        {  get; 
+           private set; 
+        }
 
         public string Deposit(decimal amount)
         {
             if (amount < 0) return "Reject";
 
-            balance += amount;
+            Balance += amount;
             return "Success";
         }
 
         public string Withdraw(decimal amount)
         {
-            if ((balance <= 0 && amount > 0) || (amount < 0)) return "reject";
+            if ((Balance <= 0 && amount > 0) || (amount < 0) || (Balance < amount)) return "reject";
 
-            balance -= amount;
+            Balance -= amount;
             return "Success";
         }
 
-        public decimal GetBalance()
-        {
-            return balance; 
-        }
 
         public BankAccount(string accountNum, string accountName, decimal bal)
         {
             this.accountNumber = accountNum;
             this.accountHolderName = accountName;
-            this.balance = bal;
+            this.Balance = bal;
         }
 
     }

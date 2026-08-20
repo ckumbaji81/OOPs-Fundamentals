@@ -14,14 +14,14 @@ namespace OOPs_Fundamentals
             BankAccount account1 = new BankAccount("1", "John", 1000);
             BankAccount account2 = new BankAccount("2", "Mary", 500);
 
-            Console.WriteLine("Initial Balance of account1: " + account1.GetBalance().ToString());
-            Console.WriteLine("Balance of account2: " + account2.GetBalance().ToString());
+            Console.WriteLine("Initial Balance of account1: " + account1.Balance.ToString());
+            Console.WriteLine("Balance of account2: " + account2.Balance.ToString());
 
             account1.Deposit(200);
-            Console.WriteLine("Balance after $200 deposit: " + account1.GetBalance().ToString());
+            Console.WriteLine("Balance after $200 deposit: " + account1.Balance.ToString());
 
             account1.Withdraw(300);
-            Console.WriteLine("Balance after $300 withdraw: " + account1.GetBalance().ToString());
+            Console.WriteLine("Balance after $300 withdraw: " + account1.Balance.ToString());
 
             
             Console.WriteLine("Deposit(-100): " + account1.Deposit(-100));
