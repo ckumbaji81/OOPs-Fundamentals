@@ -16,7 +16,7 @@ namespace OOPs_Fundamentals
 
         public string Deposit(decimal amount)
         {
-            if (amount < 0) return "Reject";
+            if (amount <= 0) return "Reject";
 
             Balance += amount;
             return "Success";
@@ -24,7 +24,7 @@ namespace OOPs_Fundamentals
 
         public string Withdraw(decimal amount)
         {
-            if ((Balance <= 0 && amount > 0) || (amount < 0) || (Balance < amount)) return "reject";
+            if ((Balance <= 0 && amount > 0) || (amount <= 0) || (Balance < amount)) return "reject";
 
             Balance -= amount;
             return "Success";
@@ -35,7 +35,12 @@ namespace OOPs_Fundamentals
         {
             this.accountNumber = accountNum;
             this.accountHolderName = accountName;
-            this.Balance = bal;
+
+            if (bal >= 0)
+            {
+                this.Balance = bal;
+            }
+            else { throw new Exception("Initial balance < 0 is not allowed."); }
         }
 
     }

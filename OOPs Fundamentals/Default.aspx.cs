@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOPs_Fundamentals.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,6 +28,22 @@ namespace OOPs_Fundamentals
             Console.WriteLine("Deposit(-100): " + account1.Deposit(-100));
             Console.WriteLine("Withdraw(-100): " + account1.Withdraw(-100));
             Console.WriteLine("Withdraw(2000) : " + account1.Withdraw(2000));
+
+            try
+            {
+                BankAccount account3 = new BankAccount("2", "Mary", -500);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+            Payment ccPayment = new CreditCardPayment();
+            Payment bfPayment = new BankTransferPayment();
+
+            ccPayment.Process();
+            bfPayment.Process();
 
         }
     }
